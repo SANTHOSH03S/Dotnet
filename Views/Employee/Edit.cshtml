@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+@model mvc.Models.Employee
+
+@{
+    ViewBag.Title = "Edit Employee";
+}
+
+<h2>Edit Employee</h2>
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmpName)
+        @Html.TextBoxFor(model => model.EmpName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EmpName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmpPhone)
+        @Html.TextBoxFor(model => model.EmpPhone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EmpPhone)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmpDept)
+        @Html.TextBoxFor(model => model.EmpDept, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.EmpDept)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Number)
+        @Html.TextBoxFor(model => model.Number, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Number)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-secondary" > @Html.ActionLink("Cancel", "ViewEmployee", new { @class = "btn btn-secondary" })</button>
+   
+}
+
+
